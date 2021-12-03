@@ -1,4 +1,4 @@
-name: Python my application
+name: Python application
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/smaartaghu
+    - uses: actions/smaartaghu@v2
       with:
         fetch-depth: 0
     - name: Set up Python 3.7
@@ -35,11 +35,11 @@ jobs:
     - name: Test with pytest
       run: |
         pytest -v
-    # - name: Deploy to Heroku
-      # env:
-        # HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
-        # HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-      # if: github.ref == 'refs/heads/main' && job.status == 'success'
-      # run: |
-        # git remote add heroku https://heroku:$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git
-        # git push heroku HEAD:main -f
+    #- name: Deploy to Heroku
+    #  env:
+    #    HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
+    #    HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
+    #  if: github.ref == 'refs/heads/main' && job.status == 'success'
+    #  run: |
+    #    git remote add heroku https://heroku:$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git
+    #    git push heroku HEAD:main -f
